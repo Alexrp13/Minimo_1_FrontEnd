@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">LISTADO DE PERSONAS EN EL EVENTO</span>
+                    <div class="mb-3">
+                        <input type="text" formControlName="evento" class="form-control form-control-lg"
+                            placeholder="Evento">
+                        <div class="text-danger"
+                            *ngIf="eventoForm.get('localizacion')?.hasError('required') && eventoForm.get('localizacion')?.touched">
+                            <span>La localizacion del evento <strong>es obligatoria</strong></span>                     
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-success btn-lg float-end">FILTRAR</button>
+                    </div>     
+            </div>
+        </div>
+    </div>
+</div>
+

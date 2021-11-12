@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">LISTADO DE EVENTOS</span>
+                    <button class="btn btn-success float-end" routerLink="/crear-evento">NUEVO EVENTO</button>
+                    <button class="btn btn-success float-end" routerLink="/escoger-evento">FILTRAR EVENTO</button>
+                    <table *ngIf="listEventos.length > 0" class="table table-striped mt-3">
+                        <thead>
+                          <tr>
+                            <th scope="col">Localizacion</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Latitud</th>
+                            <th scope="col">Longitud</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let evento of listEventos">
+                            <td>{{ evento.localizacion }}</td>
+                            <td>{{ evento.fecha }}</td>
+                            <td>{{ evento.latitud }}</td>
+                            <td>{{ evento.longitud}}</td>
+                            <td>{{ evento.descripcion}}</td>
+
+                            <td>
+                                <i [routerLink]="['/editar-evento', evento._id]" class="fas fa-edit text-primary"></i>
+                                <i (click)="eliminarEvento(evento._id)" class="fas fa-trash text-danger"></i>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <h5 style="text-align: start; margin-top: 10px;" *ngIf="listEventos.length == 0">No hay eventos para mostrar</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo"> {{ titulo | uppercase }}</span>
+                    <form class="mt-3" [formGroup]="eventoForm" (ngSubmit)="agregarEvento()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="localizacion" class="form-control form-control-lg"
+                                placeholder="Localizacion">
+                            <div class="text-danger"
+                                *ngIf="eventoForm.get('localizacion')?.hasError('required') && eventoForm.get('localizacion')?.touched">
+                                <span>La localizacion del evento <strong>es obligatoria</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="fecha" class="form-control form-control-lg"
+                                placeholder="Fecha">
+                            <div class="text-danger"
+                                *ngIf="eventoForm.get('fecha')?.hasError('required') && eventoForm.get('fecha')?.touched">
+                                <span>La fecha <strong>es obligatoria</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" formControlName="latitud" class="form-control form-control-lg"
+                                placeholder="Latitud">
+                            <div class="text-danger"
+                                *ngIf="eventoForm.get('latitud')?.hasError('required') && eventoForm.get('latitud')?.touched">
+                                <span>La latitud <strong>es obligatoria</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" formControlName="longitud" class="form-control form-control-lg"
+                                placeholder="Longitud">
+                            <div class="text-danger"
+                                *ngIf="eventoForm.get('longitud')?.hasError('required') && eventoForm.get('longitud')?.touched">
+                                <span>La longitud <strong>es obligatoria</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="descripcion" class="form-control form-control-lg"
+                                placeholder="Descripcion">
+                            <div class="text-danger"
+                                *ngIf="eventoForm.get('descripcion')?.hasError('required') && eventoForm.get('descripcion')?.touched">
+                                <span>La descripcion <strong>es obligatoria</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button routerLink="/" class="btn btn-secondary btn-lg float-start">VOLVER</button>
+                            <button type="submit" [disabled]="eventoForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
